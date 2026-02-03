@@ -7,6 +7,7 @@ const authenticate = (req, res, next) => {
 
   try {
     const token = auth.split(" ")[1]; // removes "Bearer "
+ 
     const payLoad = jwt.verify(token, SECRET);
     req.user = payLoad;
     next();
